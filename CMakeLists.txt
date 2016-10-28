@@ -1,0 +1,10 @@
+cmake_minimum_required (VERSION 3.7)
+project (CYOND)
+
+#add_subdirectory(Engine)
+add_subdirectory(Core)
+add_subdirectory(Compiler)
+add_subdirectory(Server)
+add_subdirectory(Client)
+add_subdirectory(Hub)
+add_subdirectory(Tests)
