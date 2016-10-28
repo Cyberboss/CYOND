@@ -14,3 +14,4 @@ CTestTestfile.cmake
 *.db
 *.opendb
 *.suo
+Debug/
