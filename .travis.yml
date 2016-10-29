@@ -1,6 +1,9 @@
 language: cpp
 sudo: required
 dist: trusty
+branches:
+  only:
+  - master
 compiler: clang
 addons:
   apt:
