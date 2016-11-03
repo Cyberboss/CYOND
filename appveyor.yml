@@ -1,0 +1,20 @@
+os: Visual Studio 2015
+
+branches:
+  only:
+  - master
+
+platform:
+- x64
+
+configuration:
+- Debug
+- Release
+
+install:
+- git submodule update --init --recursive
+- cmake .
+
+build: 
+  parallel: true
+  project: CYOND.sln
