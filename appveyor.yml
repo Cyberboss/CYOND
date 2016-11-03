@@ -13,7 +13,7 @@ configuration:
 
 install:
 - git submodule update --init --recursive
-- cmake .
+- cmake . -DCMAKE_GENERATOR_PLATFORM=x64
 
 build: 
   parallel: true
