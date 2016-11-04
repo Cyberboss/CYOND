@@ -19,6 +19,6 @@ namespace CYOND {
 			int FInt;
 			ObjectReference FObject;
 		};
-		bool FAssigned;
+		//bool FAssigned;
 	};
 };
