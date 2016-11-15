@@ -18,8 +18,9 @@ namespace CYOND {
 		//! @brief A double linked list used for objects to track references to itself when Del'd
 		class ObjectReference : public ObjectForwardReference {
 		private:
-			Object& FObject;	//!< @brief The Object being referenced
 			ObjectReference* FPrevious;	//!< @brief The previous object reference in the list
+		public:
+			Object& FObject;	//!< @brief The Object being referenced
 		public:
 			/*!
 				@brief Creates a new reference set on another ObjectForwardReference

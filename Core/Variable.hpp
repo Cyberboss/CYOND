@@ -11,7 +11,7 @@ namespace CYOND {
 		};
 	private:
 		union {
-			double FDouble;	//!< @brief The stored number
+			double FNumber;	//!< @brief The stored number
 			Internal::ObjectReference FObject;	//!< @brief The stored ObjectReference
 		};
 		Type FType;	//!< @brief The current type of the variable
@@ -24,7 +24,7 @@ namespace CYOND {
 			@brief Needed to properly copy FObject
 			@param ACopy The Variable to copy from
 		*/
-		Variable(const Variable& ACopy);
+		template <typename AOtherRestriction> Variable(const Variable<AOtherRestriction>& ACopy);
 		/*!
 			@brief Copy semantics are enough, this is not required
 		*/
