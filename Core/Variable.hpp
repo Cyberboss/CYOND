@@ -12,7 +12,7 @@ namespace CYOND {
 	private:
 		union {
 			double FDouble;	//!< @brief The stored number
-			ObjectReference FObject;	//!< @brief The stored ObjectReference
+			Internal::ObjectReference FObject;	//!< @brief The stored ObjectReference
 		};
 		Type FType;	//!< @brief The current type of the variable
 	public:
@@ -32,6 +32,6 @@ namespace CYOND {
 		/*!
 			@brief Needed to properly destroy FObject
 		*/
-		~Variable()
+		~Variable();
 	};
 };
