@@ -1,24 +1,37 @@
 #pragma once
 
-#include "ObjectReference.hpp"
 namespace CYOND {
 	//! @brief Basic variable on the stack, should be copied when passed as a function argument
-	class Variable {
+	template <typename ARestriction = void> class Variable {
 	public:
-		enum class Type {
-			NONE,
-			INT,
-			DOUBLE,
-			STRING,
-			LIST,
-			DATUM,
+		enum class Type : byte {
+			NONE,	//!< @brief The variable is unassigned
+			NUMBER,	//!< @brief The variable is a double
+			OBJECT,	//!< @brief The variable has a valid ObjectReference
 		};
 	private:
 		union {
-			double FDouble;
-			int FInt;
-			ObjectReference FObject;
+			double FDouble;	//!< @brief The stored number
+			ObjectReference FObject;	//!< @brief The stored ObjectReference
 		};
-		//bool FAssigned;
+		Type FType;	//!< @brief The current type of the variable
+	public:
+		/*!
+			@brief Constructs a nulled out Variable
+		*/
+		Variable();
+		/*!
+			@brief Needed to properly copy FObject
+			@param ACopy The Variable to copy from
+		*/
+		Variable(const Variable& ACopy);
+		/*!
+			@brief Copy semantics are enough, this is not required
+		*/
+		Variable(Variable&&) = delete;
+		/*!
+			@brief Needed to properly destroy FObject
+		*/
+		~Variable()
 	};
 };
