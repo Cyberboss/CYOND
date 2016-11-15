@@ -1,12 +1,12 @@
 #include "CYOND.hpp"
 
-template <typename ARestriction> CYOND::Variable<ARestriction>::Variable() :
+template <typename ARestriction> CYOND::Variable<ARestriction>::Variable() noexcept :
 	FType(Type::NONE)
 {
 	static_assert(std::is_same<ARestriction, void>::value || std::is_base_of<Object, ARestriction>::value, "Invalid variable restriction")
 }
 
-template <typename ARestriction> template <typename AOtherRestriction> CYOND::Variable<ARestriction>::Variable(const Variable<AOtherRestriction>& ACopy) {
+template <typename ARestriction> template <typename AOtherRestriction> CYOND::Variable<ARestriction>::Variable(const Variable<AOtherRestriction>& ACopy) noexcept {
 	if (std::is_same<ARestriction, void>::value
 		|| std::is_same<ARestriction, AOtherRestriction>::value
 		|| std::is_base_of<ARestriction, AOtherRestriction>::value

@@ -19,12 +19,12 @@ namespace CYOND {
 		/*!
 			@brief Constructs a nulled out Variable
 		*/
-		Variable();
+		Variable() noexcept;
 		/*!
 			@brief Needed to properly copy FObject
 			@param ACopy The Variable to copy from
 		*/
-		template <typename AOtherRestriction> Variable(const Variable<AOtherRestriction>& ACopy);
+		template <typename AOtherRestriction> Variable(const Variable<AOtherRestriction>& ACopy) noexcept;
 		/*!
 			@brief Copy semantics are enough, this is not required
 		*/

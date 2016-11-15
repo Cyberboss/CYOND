@@ -7,10 +7,15 @@ namespace CYOND {
 		/*!
 			@brief Initializes it's parent to null
 		*/
-		Object();
+		Object() noexcept;
 		/*!
 			@brief Used to implement destructors
 		*/
 		virtual ~Object() = default;
+
+		/*!
+			@brief A signal that a reference to this object has been destroyed and the object should check if it has any other references. If not delete itself
+		*/
+		void ReferenceRemoved(void) noexcept;
 	};
 };
